@@ -1,0 +1,62 @@
+
+.header {
+  width: 100%;
+  padding: 2%;
+  background-color: burlywood;
+  color: white;
+  text-align: center;
+}
+.header-text{
+  
+}
+
+
+.display-board {
+  width: 100%;
+  background-color: rgb(46, 134, 193); /* สีน้ำเงิน */
+  padding: 5%;
+  border-radius: 10px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.rainbow-text:is(.linear-hstripes) {
+  background: linear-gradient(to bottom,   red 0%,   red 12.5%,   orange 12.5%,   orange 25%,   yellow 25%,   yellow 37.5%,   green 37.5%,   green 50%,   blue 50%,   blue 62.5%,   indigo 62.5%,   indigo 75%,   violet 75%,   violet 87.5%, white 87.5%) 0 0.3em/100% 1em repeat-y;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 7vw;
+  font-family:sans-serif;
+  font-weight: bold;
+  text-align: center;
+    display:block;
+  animation:scroll 2s infinite;
+    animation-timing-function: linear;
+  }
+  
+  .stroke{
+      filter:url(#stroke-text-svg-filter);
+  }
+  
+  @keyframes scroll{
+    0%{
+      background-position-y:0;
+    }
+    100%{
+      background-position-y:1em;
+    }
+  }
+  
+
+/* ปรับแต่งขนาดและสีของตัวเลข */
+.number {
+  color: #e74c3c; /* สีแดง */
+  font-size: 100px; /* ขยายขนาดตัวเลข */
+  text-align: center;
+  font-weight: bold; /* ทำให้ตัวเลขตัวหนา */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* เพิ่มเงาใต้ตัวเลข */
+}
+
+.mrgnbtm {
+  margin-top: 20px;
+}
+
+
