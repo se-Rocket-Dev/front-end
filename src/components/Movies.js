@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
 
-
+const bearerToken = "1234567890"
 
 export const Movies = ({ movies }) => {
   const [searchText, setSearchText] = useState('');
@@ -11,7 +11,9 @@ export const Movies = ({ movies }) => {
   const handleSearch = async () => {
     try {
       const response = await fetch(`https://api.se-rmutl.net/api/movie/search?search_text=${searchText}`, {
-        credentials: 'include',
+        headers: {
+          Authorization: `Bearer ${bearerToken}`,
+        },
       });      
       const data = await response.json();
 
