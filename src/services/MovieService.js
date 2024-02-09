@@ -1,4 +1,5 @@
-
+const env = require("../components/env.js")
+const apiConfig = require("../components/ApiurlToken.js")[env];
 // export async function getAllMovies() {
 //     try{
 //         const response = await fetch('http://localhost:3001/api/movies/all');
@@ -30,16 +31,16 @@
 //       })
 //     return await response.json();
 // }
-const bearerToken = "1234567890"
+
 
 
 export async function getAllMovies() {
 
     try{
         //const response = await fetch('/api/users');
-         const response = await fetch('https://api.se-rmutl.net/api/movie/all', {
+         const response = await fetch(`${apiConfig.API_URL}/api/movie/all`, {
             headers: {
-                Authorization: `Bearer ${bearerToken}`,
+                Authorization: `Bearer ${apiConfig.bearerToken}`,
             },
          });
         //const response = await fetch('/api/movie/all');
@@ -52,11 +53,11 @@ export async function getAllMovies() {
 
 //---- ยังไม่เสร็จ ----
 export async function createMovie(data) {
-    const response = await fetch(`https://api.se-rmutl.net/api/movie/insert`, {
+    const response = await fetch(`${apiConfig.API_URL}/api/movie/insert`, {
         method: 'POST',
         headers: {
             headers: {'Content-Type': 'application/json'},
-            Authorization: `Bearer ${bearerToken}`,
+            Authorization: `Bearer ${apiConfig.bearerToken}`,
         },
         body: JSON.stringify({...data})
       });

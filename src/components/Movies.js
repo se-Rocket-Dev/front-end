@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import "../App.css";
 
-const bearerToken = "1234567890"
-
 export const Movies = ({ movies }) => {
   const [searchText, setSearchText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
+  const env = require("../components/env.js")
+  const apiConfig = require("../components/ApiurlToken.js")[env];
 
   const handleSearch = async () => {
     try {
-      const response = await fetch(`https://api.se-rmutl.net/api/movie/search?search_text=${searchText}`, {
+      const response = await fetch(`${apiConfig.API_URL}/api/movie/search?search_text=${searchText}`, {
         headers: {
-          Authorization: `Bearer ${bearerToken}`,
+          Authorization: `Bearer ${apiConfig.bearerToken}`,
         },
       });      
       const data = await response.json();
